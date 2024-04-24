@@ -1,0 +1,74 @@
+<div class="row">
+ <div class="col-4">
+  <mat-card class="board-card">
+   <mat-card-header>
+    <h2>Enjoy Tic Tac Toe!</h2>
+   </mat-card-header>
+   <mat-card-content>
+    <!-- Show winner if it's -->
+    @if (winner) {
+    <h2>Player {{winner}} won</h2>
+    }
+    <!-- Show draw  if it's-->
+    @if(isDraw){
+    <h2>Draw!!</h2>
+    }
+
+    <button mat-raised-button color="primary" (click)="startNewGame()">{{btnStatus}}</button>
+   </mat-card-content>
+  </mat-card>
+ </div>
+ <div class="col-8">
+  <mat-card class="board-card">
+   <mat-card-header>
+    <!-- Show current player if the game is ongoing -->
+    @if (!winner && !isNewGame && !isDraw) {
+    <h2>Current Player {{currentPlayer}}</h2>
+    }
+   </mat-card-header>
+   <mat-card-content>
+    <!-- Render the game board if the game is ongoing -->
+    @if(!winner && !isDraw){
+    <main>
+     @for (val of boardIndexes; track $index) {
+     <app-gaming [valueOfIndex]="val" (click)="onClickIndex($index)"></app-gaming>
+     }
+    </main>
+    }
+   </mat-card-content>
+  </mat-card>
+ </div>
+ <mat-card class="board-card">
+  <!-- Render played game states -->
+  @if (playedState.length > 0) {
+  <div class="row">
+   @for (GameState of playedState; track $index) {
+   <div class="col-2">
+    <!-- Show "Lastly played" label for the latest played state -->
+    @if (playedState[0] == GameState) {
+    <span style="color: rgb(255, 0, 179); font-weight: bold;">Lastly played</span>
+    }
+    <br>
+    <!-- Show game status (winner or draw) -->
+    @if (GameState.status == "Draw") {
+    <span>The game is {{GameState.status}}</span>
+    }
+    @if (GameState.status != "Draw") {
+    <span class="text">{{GameState.status}} won the game</span>
+    }
+    <!-- Render the game state -->
+    <main class="score">
+     @for (index of items; track $index) {
+     @for (indexState of GameState.state; track $index) {
+     @if (index == indexState.ind) {
+     <span class="value">{{indexState.value}}</span>
+     }
+     }
+     }
+    </main>
+   </div>
+   }
+  </div>
+  }
+ </mat-card>
+</div>

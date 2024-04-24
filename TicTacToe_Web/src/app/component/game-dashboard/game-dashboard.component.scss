@@ -1,0 +1,38 @@
+.board-card {
+  height: 270px;
+  max-width: 1500px;
+  overflow: auto;
+  margin: 11px;
+  border: 1px solid #bab4b4de;
+  border-radius: 10px;
+  align-content: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 232px 232px 232px;
+  grid-template-rows: 52px 52px 52px;
+  grid-gap: 2cap;
+}
+
+.score {
+  display: grid;
+  grid-template-columns: 52px 52px 52px;
+  grid-template-rows: 44px 44px 44px;
+  grid-gap: 0cap;
+}
+
+.value {
+  width: 89%;
+  height: 97%;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  align-items: center;
+  background-color: rgb(75, 28, 185);
+  border: none;
+}
+
+.text {
+  font-weight: bold;
+}
