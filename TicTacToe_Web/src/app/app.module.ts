@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from '../Material.Module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { GameDashboardComponent } from './component/game-dashboard/game-dashboard.component';
+import { GamingComponent } from './component/gaming/gaming.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, GameDashboardComponent, GamingComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
