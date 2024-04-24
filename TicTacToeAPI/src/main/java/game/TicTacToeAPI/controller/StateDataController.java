@@ -2,11 +2,8 @@ package game.TicTacToeAPI.controller;
 
 import game.TicTacToeAPI.dto.StateDataRequest;
 import game.TicTacToeAPI.entity.StateData;
-import game.TicTacToeAPI.repo.GameStateRepo;
-import game.TicTacToeAPI.repo.StateDataRepo;
 import game.TicTacToeAPI.service.StateService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class StateDataController {
-
-    private final StateDataRepo stateDataRepo;
-    private final GameStateRepo gameStateRepo;
     private final StateService service;
     @PostMapping("/saveState")
     public ResponseEntity<List<StateData>> saveState(@RequestBody StateDataRequest dataRequest)
